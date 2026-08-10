@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>SRKP Government PG College AI Help Desk</title>
+
+    <meta name="description"
+          content="Artificial Intelligence Help Desk for students of SRKP Government PG College.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #071a3d;
+            --blue: #1455c0;
+            --cyan: #32c5ff;
+            --gold: #ffc94a;
+            --white: #ffffff;
+            --light: #f4f8ff;
+            --text: #17233b;
+            --muted: #5c6b82;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: var(--light);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+
+        header {
+            background: var(--white);
+            padding: 14px 6%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 18px rgba(7, 26, 61, 0.10);
+            position: relative;
+            z-index: 10;
+        }
+
+        .college-logo {
+            width: 72px;
+            height: 72px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .college-details h1 {
+            color: var(--navy);
+            font-size: 1.22rem;
+            line-height: 1.3;
+        }
+
+        .college-details p {
+            color: var(--blue);
+            font-size: 0.92rem;
+            font-weight: 700;
+            margin-top: 3px;
+        }
+
+        /* HERO SECTION */
+
+        .hero {
+            min-height: 76vh;
+            padding: 75px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--white);
+
+            background:
+                radial-gradient(
+                    circle at 85% 15%,
+                    rgba(50, 197, 255, 0.30),
+                    transparent 28%
+                ),
+                radial-gradient(
+                    circle at 10% 85%,
+                    rgba(20, 85, 192, 0.55),
+                    transparent 30%
+                ),
+                linear-gradient(135deg, #05132d, #0a3275);
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 7px 16px;
+            margin-bottom: 22px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            border-radius: 30px;
+            color: var(--cyan);
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+        }
+
+        .hero h2 {
+            font-size: clamp(2.1rem, 6vw, 4.3rem);
+            line-height: 1.12;
+            margin-bottom: 21px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto 34px;
+            color: #dceaff;
+            font-size: 1.06rem;
+        }
+
+        .question-button {
+            display: inline-block;
+            padding: 18px 34px;
+            border-radius: 13px;
+            background: linear-gradient(135deg, var(--gold), #ffe28a);
+            color: var(--navy);
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 800;
+            box-shadow: 0 14px 35px rgba(255, 201, 74, 0.32);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+
+        .question-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 40px rgba(255, 201, 74, 0.42);
+        }
+
+        .button-note {
+            margin-top: 14px !important;
+            margin-bottom: 0 !important;
+            font-size: 0.84rem !important;
+            color: #bcd5ff !important;
+        }
+
+        /* COMMON SECTION */
+
+        section {
+            padding: 65px 6%;
+        }
+
+        .section-heading {
+            max-width: 720px;
+            margin: 0 auto 36px;
+            text-align: center;
+        }
+
+        .section-heading h2 {
+            color: var(--navy);
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        /* HELP CARDS */
+
+        .help-cards {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .help-card {
+            background: var(--white);
+            padding: 27px 18px;
+            border: 1px solid #dfe9f8;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 9px 28px rgba(7, 26, 61, 0.07);
+        }
+
+        .help-card .icon {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 12px;
+        }
+
+        .help-card h3 {
+            color: var(--navy);
+            font-size: 1rem;
+        }
+
+        /* PROCESS */
+
+        .process-section {
+            background: var(--white);
+        }
+
+        .steps {
+            max-width: 930px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .step {
+            background: var(--light);
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid var(--blue);
+        }
+
+        .step-number {
+            display: block;
+            color: var(--blue);
+            font-size: 0.82rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .step h3 {
+            color: var(--navy);
+            font-size: 1.05rem;
+            margin-bottom: 6px;
+        }
+
+        .step p {
+            color: var(--muted);
+            font-size: 0.93rem;
+        }
+
+        /* EMBEDDED GOOGLE FORM */
+
+        .form-section {
+            background:
+                linear-gradient(
+                    180deg,
+                    var(--light),
+                    #eaf3ff
+                );
+        }
+
+        .form-container {
+            max-width: 900px;
+            margin: auto;
+            overflow: hidden;
+            background: var(--white);
+            border-radius: 18px;
+            box-shadow: 0 15px 45px rgba(7, 26, 61, 0.12);
+            border: 1px solid #d8e6f8;
+        }
+
+        .form-container iframe {
+            display: block;
+            width: 100%;
+            height: 850px;
+            border: 0;
+        }
+
+        .privacy-note {
+            max-width: 850px;
+            margin: 28px auto 0;
+            padding: 14px 18px;
+            border-radius: 10px;
+            background: #e4f0ff;
+            color: #365473;
+            text-align: center;
+            font-size: 0.88rem;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: var(--navy);
+            color: #cadbfa;
+            text-align: center;
+            padding: 29px 15px;
+        }
+
+        footer strong {
+            display: block;
+            color: var(--gold);
+            font-size: 1.02rem;
+            margin-bottom: 4px;
+        }
+
+        footer p {
+            font-size: 0.88rem;
+        }
+
+        /* MOBILE DESIGN */
+
+        @media (max-width: 800px) {
+            header {
+                padding: 12px 16px;
+                align-items: flex-start;
+            }
+
+            .college-logo {
+                width: 58px;
+                height: 58px;
+            }
+
+            .college-details h1 {
+                font-size: 0.96rem;
+            }
+
+            .college-details p {
+                font-size: 0.78rem;
+            }
+
+            .hero {
+                min-height: 70vh;
+                padding: 60px 18px;
+            }
+
+            .hero p {
+                font-size: 0.96rem;
+            }
+
+            .question-button {
+                width: 100%;
+                max-width: 370px;
+                padding: 17px 18px;
+            }
+
+            section {
+                padding: 52px 18px;
+            }
+
+            .help-cards,
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .section-heading h2 {
+                font-size: 1.65rem;
+            }
+
+            .form-container iframe {
+                height: 900px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- College Header -->
+
+    <header>
+        <img
+            src="college-logo.png"
+            alt="SRKP Government PG College official logo"
+            class="college-logo"
+        >
+
+        <div class="college-details">
+            <h1>SRKP Government PG College</h1>
+            <p>Artificial Intelligence Help Desk</p>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- Main Homepage Section -->
+
+        <section class="hero">
+            <div class="hero-content">
+
+                <div class="hero-label">
+                    AI SUPPORT FOR STUDENTS
+                </div>
+
+                <h2>
+                    How can we help you with AI today?
+                </h2>
+
+                <p>
+                    Facing difficulty with an AI tool, prompt,
+                    assignment, project or concept? Submit your question
+                    to the SRKP Government PG College Artificial
+                    Intelligence Help Desk.
+                </p>
+
+                <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSesxwZz1s1D039zZBL0gFqqdkjTCdC3IlqLiAAXVKj15O2bJw/viewform?usp=header"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="question-button"
+                >
+                    ASK YOUR AI QUESTION →
+                </a>
+
+                <p class="button-note">
+                    The AI Help Desk form will open securely in a new tab.
+                </p>
+
+            </div>
+        </section>
+
+        <!-- Topics Section -->
+
+        <section>
+            <div class="section-heading">
+                <h2>What can you ask?</h2>
+
+                <p>
+                    Students can submit questions related to learning,
+                    understanding and using artificial intelligence.
+                </p>
+            </div>
+
+            <div class="help-cards">
+
+                <article class="help-card">
+                    <span class="icon">🤖</span>
+                    <h3>AI Tools & Applications</h3>
+                </article>
+
+                <article class="help-card">
+                    <span class="icon">✍️</span>
+                    <h3>Prompt Writing</h3>
+                </article>
+
+                <article class="help-card">
+                    <span class="icon">💻</span>
+                    <h3>Projects & Assignments</h3>
+                </article>
+
+                <article class="help-card">
+                    <span class="icon">💡</span>
+                    <h3>General AI Questions</h3>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- How It Works -->
+
+        <section class="process-section">
+            <div class="section-heading">
+                <h2>How it works</h2>
+                <p>Getting AI-related assistance is simple.</p>
+            </div>
+
+            <div class="steps">
+
+                <article class="step">
+                    <span class="step-number">STEP 01</span>
+                    <h3>Submit your question</h3>
+                    <p>
+                        Open the Google Form and enter the requested
+                        information along with your AI question.
+                    </p>
+                </article>
+
+                <article class="step">
+                    <span class="step-number">STEP 02</span>
+                    <h3>Question review</h3>
+                    <p>
+                        The Artificial Intelligence Help Desk team
+                        reviews your submitted problem.
+                    </p>
+                </article>
+
+                <article class="step">
+                    <span class="step-number">STEP 03</span>
+                    <h3>Receive guidance</h3>
+                    <p>
+                        Appropriate guidance or support is provided
+                        regarding your AI-related question.
+                    </p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Google Form Section -->
+
+        <section class="form-section" id="ai-question-form">
+            <div class="section-heading">
+                <h2>Submit your AI question</h2>
+
+                <p>
+                    Complete the form below to send your question to
+                    the Artificial Intelligence Help Desk.
+                </p>
+            </div>
+
+            <div class="form-container">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSesxwZz1s1D039zZBL0gFqqdkjTCdC3IlqLiAAXVKj15O2bJw/viewform?embedded=true"
+                    title="SRKP Government PG College AI Help Desk Form"
+                    loading="lazy"
+                >
+                    Loading…
+                </iframe>
+            </div>
+
+            <div class="privacy-note">
+                Your contact details will only be used for responding
+                to your submitted question. Please do not enter
+                passwords or other sensitive information.
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Credit -->
+
+    <footer>
+        <strong>Presented by Vanshika Vaishnav</strong>
+        <p>Website created by Vanshika Vaishnav.</p>
+    </footer>
+
+</body>
+</html>
